@@ -1,8 +1,8 @@
-name: 'ani-cli checks'
+name: 'binge checks'
 on:
   pull_request:
     paths: 
-      - "/ani-cli"
+      - "/binge"
       
 jobs:
   version-bump:

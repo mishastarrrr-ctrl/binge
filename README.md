@@ -475,7 +475,7 @@ rm "$PREFIX/bin/ani-cli"
 * Steam Deck
 ```sh
 rm "~/.local/bin/ani-cli"
-rm -rf ~/.ani-cli
+rm -rf ~/.binge
 ```
 optionally: remove dependencies:
 ```sh
@@ -487,7 +487,7 @@ flatpak uninstall io.mpv.Mpv
 ```
 * iOS
 ```
-rm -rf /usr/local/bin/ani-cli
+rm -rf /usr/local/bin/binge
 ```
 To uninstall other dependencies:
 ```

@@ -302,7 +302,7 @@ download() {
 }
 
 play_episode() {
-    [ "$log_episode" = 1 ] && [ "$player_function" != "debug" ] && [ "$player_function" != "download" ] && command -v logger >/dev/null && logger -t ani-cli "${allanime_title}${ep_no}"
+    [ "$log_episode" = 1 ] && [ "$player_function" != "debug" ] && [ "$player_function" != "download" ] && command -v logger >/dev/null && logger -t binge "${allanime_title}${ep_no}"
     [ "$skip_intro" = 1 ] && skip_flag="$(ani-skip -q "$mal_id" -e "$ep_no")"
     [ -z "$episode" ] && get_episode_url
     # shellcheck disable=SC2086
@@ -402,7 +402,7 @@ skip_intro="${ANI_CLI_SKIP_INTRO:-0}"
 # shellcheck disable=SC2154
 skip_title="$ANI_CLI_SKIP_TITLE"
 [ -t 0 ] || use_external_menu=1
-hist_dir="${ANI_CLI_HIST_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/ani-cli}"
+hist_dir="${ANI_CLI_HIST_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/binge}"
 [ ! -d "$hist_dir" ] && mkdir -p "$hist_dir"
 histfile="$hist_dir/ani-hsts"
 [ ! -f "$histfile" ] && : >"$histfile"
@@ -450,7 +450,7 @@ while [ $# -gt 0 ]; do
         -l | --logview)
             case "$(uname -s)" in
                 Darwin*) log show --predicate 'process == "logger"' ;;
-                Linux*) journalctl -t ani-cli ;;
+                Linux*) journalctl -t binge ;;
                 *) die "Logger not implemented for your platform" ;;
             esac
             exit 0
@@ -561,7 +561,7 @@ while cmd=$(printf "next\nreplay\nprevious\nselect\nchange_quality\nquit" | nth 
     play
 done
 
-# ani-cli
+# binge
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
